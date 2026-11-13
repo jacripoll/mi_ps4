@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="author" content="mansoor0x">
   <meta name="copyright" content="Copyright 2026 mansoor0x">
-  <title>PS4 14.00 · Offline Cache</title>
+  <title>PS4 14.00 · Caché sin conexión</title>
   <style>
     * { box-sizing: border-box; }
     html, body { min-height: 100%; }
@@ -25,13 +25,13 @@
 </head>
 <body>
   <main>
-    <h1>PS4 14.00 · Offline Cache</h1>
-    <p id="message">Checking offline cache...</p>
+    <h1>Mi PS4 14.00 · Caché sin conexión</h1>
+    <p id="message">Comprobando la caché sin conexión...</p>
     <div id="track"><div id="bar"></div></div>
-    <div id="percent">Please wait</div>
-    <p><a href="index.html">Open GoldHEN launcher</a></p>
+    <div id="percent">Espere por favor</div>
+    <p><a href="index.html">Abriendo el lanzador GoldHEN</a></p>
   </main>
-  <footer>© 2026 mansoor0x · 1_X @ZeroMan · All rights reserved</footer>
+  <footer>© 2026 mansoor0x · 1_X @ZeroMan · @jacripoll · All rights reserved</footer>
   <script>
     (function () {
       var msg = document.getElementById("message");
@@ -51,38 +51,38 @@
       }
 
       if (!app) {
-        setStatus("Offline cache is not supported by this browser.", null);
+        setStatus("Este navegador no admite la caché sin conexión.", null);
         return;
       }
 
       app.addEventListener("checking", function () {
-        setStatus("Checking cache...", null);
+        setStatus("Comprobando la caché...", null);
       }, false);
       app.addEventListener("downloading", function () {
-        setStatus("Installing offline cache...", 0);
+        setStatus("Instalando caché sin conexión...", 0);
       }, false);
       app.addEventListener("progress", function (event) {
         if (event.lengthComputable && event.total > 0) {
-          setStatus("Installing offline cache...", Math.round(event.loaded / event.total * 100));
+          setStatus("Instalando caché sin conexión...", Math.round(event.loaded / event.total * 100));
         } else {
-          setStatus("Downloading offline files...", null);
+          setStatus("Descargando archivos para uso sin conexión...", null);
         }
       }, false);
       app.addEventListener("cached", function () {
-        setStatus("Offline cache installed successfully.", 100);
+        setStatus("Caché sin conexión instalada correctamente.", 100);
       }, false);
       app.addEventListener("noupdate", function () {
-        setStatus("Offline cache is already up to date.", 100);
+        setStatus("La caché sin conexión ya está actualizada.", 100);
       }, false);
       app.addEventListener("updateready", function () {
         try { app.swapCache(); } catch (e) {}
-        setStatus("Offline cache updated successfully.", 100);
+        setStatus("Caché sin conexión actualizada correctamente.", 100);
       }, false);
       app.addEventListener("obsolete", function () {
-        setStatus("Cache manifest is obsolete. Reload this page.", null);
+        setStatus("El manifiesto de caché está obsoleto. Recarga esta página.", null);
       }, false);
       app.addEventListener("error", function () {
-        setStatus("Cache update failed. Check the connection and reload.", null);
+        setStatus("Error al actualizar la caché. Comprueba la conexión y vuelve a cargar.", null);
       }, false);
     })();
   </script>
